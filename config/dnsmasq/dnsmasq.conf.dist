@@ -1,0 +1,8 @@
+bogus-priv
+filterwin2k
+ 
+localise-queries
+local=/local/
+domain=local.local
+expand-hosts
+no-negcache
