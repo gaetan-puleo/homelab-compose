@@ -7,9 +7,10 @@ The goals:
 
 ## Services
 
-- Radicale
-- Gitea
 - FreshRSS
+- Gitea
+- Home Assistant
+- Nginx-proxy-manager
+- Radicale
 - Syncthing
-- Home Assistan
 - Wg-easy
