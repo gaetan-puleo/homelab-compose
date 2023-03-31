@@ -1,0 +1,11 @@
+# docker-compose.yml
+version: '3.7'
+
+services:
+  app:
+    image: cupcakearmy/radicale
+    env_file: .env
+    volumes:
+      - ../../volumes/radicale/data:/data
+    ports:
+      - 80:5232

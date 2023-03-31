@@ -1,0 +1,6 @@
+volumes/*
+!volumes/.gitkeep
+docker-compose.yml
+machines
+.env
+
