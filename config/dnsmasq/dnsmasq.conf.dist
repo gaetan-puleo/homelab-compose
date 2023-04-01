@@ -1,8 +1,27 @@
-bogus-priv
-filterwin2k
- 
-localise-queries
-local=/local/
-domain=local.local
-expand-hosts
-no-negcache
+filterwin2k                                                                               
+                                                                                          
+# Never forward plain names (without a dot or domain part)                                
+domain-needed                                                                             
+# Never forward addresses in the non-routed address spaces                                
+bogus-priv                                                                                
+                                                                                          
+#dont use hosts nameservers                                                               
+no-resolv                                                                                 
+                                                                                              
+clear-on-reload                                                                           
+server=1.0.0.1                                                                          
+server=1.1.1.1                                                                            
+                                                                                            
+user=dnsmasq                                                                            
+# Add other name servers here, with domain specs if they are for                          
+# non-public domains.                                                                     
+                                                                                              
+strict-order                                                                              
+                                                                                              
+local=/lan/                                                                               
+expand-hosts                                                                              
+domain=lan                                                                                
+                                                                                              
+log-queries                                                                               
+bind-dynamic                                                                              
+                                          
