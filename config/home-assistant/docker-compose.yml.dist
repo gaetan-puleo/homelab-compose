@@ -11,7 +11,7 @@ services:
       - TZ=Europe/Paris
     volumes:
       - ../../volumes/homeassistant/config:/config
-    #ports:
+    ports:
       - 8123:8123 #optional
     #devices:
     #  - /path/to/device:/path/to/device #optional
