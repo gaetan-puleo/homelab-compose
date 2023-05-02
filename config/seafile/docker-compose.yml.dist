@@ -1,0 +1,42 @@
+version: '2.0'
+services:
+  db:
+    image: mariadb:10.5
+    container_name: seafile-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=db_pwd
+      - MYSQL_LOG_CONSOLE=true
+    volumes:
+      - /opt/seafile-mysql/db:/var/lib/mysql
+    networks:
+      - seafile-net
+  memcached:
+    image: memcached:1.5.6
+    container_name: seafile-memcached
+    entrypoint: memcached -m 256
+    networks:
+      - seafile-net
+  seafile:
+    image: seafileltd/seafile-mc:latest
+    container_name: seafile
+    ports:
+      - "8991:80"
+#      - "443:443"  # If https is enabled, cancel the comment.
+    volumes:
+      - /opt/seafile-data:/shared
+    environment:
+      - DB_HOST=db
+      - DB_ROOT_PASSWD=db_pwd
+      - TIME_ZONE=Europe/Rome
+      - SEAFILE_ADMIN_EMAIL=my_email@example.com
+      - SEAFILE_ADMIN_PASSWORD=my_pwd
+      - SEAFILE_SERVER_LETSENCRYPT=false
+      - SEAFILE_SERVER_HOSTNAME=192.168.1.177
+    depends_on:
+      - db
+      - memcached
+    networks:
+      - seafile-net
+
+networks:
+  seafile-net:
