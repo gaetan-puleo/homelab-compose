@@ -7,10 +7,10 @@ The goals:
 
 ## Services
 
-- FreshRSS
-- Gitea
+- FreshRSS (deprecated)
+- Gitea (why?)
 - Home Assistant
 - Nginx-proxy-manager
-- Radicale
-- Syncthing
-- Wg-easy
+- Radicale (deprecated)
+- Syncthing (deprecated)
+- Wg-easy (deprecated)
