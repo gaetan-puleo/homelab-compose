@@ -1,11 +1,11 @@
 # source: https://hub.docker.com/r/ugeek/webdav
 version: '3.3'
 services:
-    run:
+    webdav:
         container_name: webdav
         restart: unless-stopped
         ports:
-            - '80:80'
+            - '8000:80'
         volumes:
             - '$HOME/docker/webdav:/media'
         environment:
@@ -14,4 +14,4 @@ services:
             - TZ=Europe/Madrid
             - UDI=1000
             - GID=1000
-        image: run
+        image: ugeek/webdav:arm
