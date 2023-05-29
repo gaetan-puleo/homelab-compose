@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+    dave:
+        ports:
+            - '8000:8000'
+        volumes:
+            - '/mnt/nas/config-sample.yaml:/config.yaml:ro'
+            - '/mnt/nas/data:/tmp:rw'
+        image: 'micromata/dave:latest'
