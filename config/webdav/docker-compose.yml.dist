@@ -1,9 +1,17 @@
+# source: https://hub.docker.com/r/ugeek/webdav
 version: '3.3'
 services:
-    dave:
+    run:
+        container_name: webdav
+        restart: unless-stopped
         ports:
-            - '8000:8000'
+            - '80:80'
         volumes:
-            - '/mnt/nas/config-sample.yaml:/config.yaml:ro'
-            - '/mnt/nas/data:/tmp:rw'
-        image: 'micromata/dave:latest'
+            - '$HOME/docker/webdav:/media'
+        environment:
+            - USERNAME=webdav
+            - PASSWORD=webdav
+            - TZ=Europe/Madrid
+            - UDI=1000
+            - GID=1000
+        image: run
